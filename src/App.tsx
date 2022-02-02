@@ -1,23 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ImagePreview from './components/ImagePreview';
+import NavBar from './components/NavBar';
+import SideBar from './components/SideBar';
+import { propertyList } from './data/PropertyList';
+import Focus360Provider from './context/context';
 
 function App() {
   return (
     <div className="App">
+      <NavBar />
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='home-body'>
+          <Focus360Provider>
+            <SideBar properties={propertyList}></SideBar>
+            <ImagePreview properties={propertyList}></ImagePreview>
+          </Focus360Provider>
+        </div>
       </header>
     </div>
   );

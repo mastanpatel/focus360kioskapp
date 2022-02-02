@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Web site created using create-react-app"
+      content="Progressive web app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
@@ -39,5 +39,21 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+
+      // document.addEventListener("click", function (e) {
+      //   console.log("full screen mode");
+      //   document.documentElement.requestFullscreen();
+      // });
+  
+  
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('./serviceworker.js')
+            .then((reg) => console.log('ServiceWorker registration successful with scope: ', reg.scope))
+            .catch((err) => console.log('Failure to register service worker', err));
+        })
+      }
+    </script>
   </body>
 </html>
